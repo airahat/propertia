@@ -1,0 +1,12 @@
+.side-bar{
+    background-color: #d1dff6;
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.main{
+    flex: 1;
+    min-height: 100vh;
+    
+}
+
