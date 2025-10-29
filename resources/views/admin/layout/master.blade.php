@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>@yield("title")</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,13 +35,13 @@
                             <a class="nav-link active d-flex" href="#"><span class="me-auto">Dashboard</span> <i class="fa-solid fs-5 fa-chart-column"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#" ><span class="me-auto">Property</span> <i class="fa-solid fa-city fs-5"></i></a>
+                            <a class="nav-link d-flex" href="#" ><span class="me-auto">Properties</span> <i class="fa-solid fa-city fs-5"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Employees</a>
+                            <a class="nav-link d-flex" href="#"><span class="me-auto">Rentals</span> <i class="fa-solid fs-5 fa-users"></i> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Customers</a>
+                            <a class="nav-link d-flex" href="#"><span class="me-auto">Employees</span> <i class="fa-solid fs-5 fa-users"></i></a>
                         </li>
                 </div>
 
@@ -50,7 +50,7 @@
             <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -67,19 +67,17 @@
                                     Properties
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Buy a Property</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Sell Yours</a></li>
+                                    <li><a class="dropdown-item" href="#">Buy</a></li>
+
+                                    <li><a class="dropdown-item" href="#">Rent</a></li>
 
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="/about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" href="/contact">Contact Us</a>
                             </li>
                         </ul>
                         <form class="d-flex">
@@ -90,7 +88,10 @@
                 </div>
             </nav>
             <div class="container-fluid content-area">
-                <h1>Hi</h1>
+
+                @yield("content")
+
+
             </div>
 
         </div>
@@ -98,9 +99,10 @@
 
 
 
+        
+    
+       
     </div>
-
-
 
 
 
