@@ -2,6 +2,7 @@
     background-color: #d1dff6;
     min-width: 240px;
     max-width: 240px;
+    transition: ease-in-out 0.3s;
 }
 
 .main{
@@ -47,3 +48,24 @@
 .content-area{
     min-height: 100vh;
 }   
+
+.fa-xmark{
+    cursor: pointer !important;
+
+}
+
+.side-bar.hidden {
+    margin-left: -240px;
+    transition: ease-in-out 0.4s;
+}
+#openSidebar{
+    cursor: pointer;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+#openSidebar.show {
+    width: 24px;  
+    opacity: 1;
+}

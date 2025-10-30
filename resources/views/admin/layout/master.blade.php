@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield("title")</title>
+    <title>@yield("title", "Home")</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,12 +15,16 @@
 </head>
 
 <body>
+
+
     <div class="d-flex">
-        <aside class="side-bar">
-            <div class="logo text-center pt-1">
-                <a class="logo" href="#">
+        <aside class="side-bar" id="sidebar">
+            <div class="logo text-center px-3 pt-1 d-flex ">
+                <a class="logo" href="/">
                     <img src="{{ asset('propertia-logo.png') }}" style="width: 100px;" alt="">
                 </a>
+                <i class="fa-solid fa-xmark fw-bolder fs-4 pt-3 ms-auto"  id="closeSidebar"></i>
+
             </div>
             {{-- profile img --}}
             <div>
@@ -38,7 +44,7 @@
                             <a class="nav-link d-flex" href="#" ><span class="me-auto">Properties</span> <i class="fa-solid fa-city fs-5"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#"><span class="me-auto">Rentals</span> <i class="fa-solid fs-5 fa-users"></i> </a>
+                            <a class="nav-link d-flex" href="#"><span class="me-auto">Rentals</span> <i class="fa-solid fa-house-user fs-5"></i> </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link d-flex" href="#"><span class="me-auto">Employees</span> <i class="fa-solid fs-5 fa-users"></i></a>
@@ -47,7 +53,9 @@
 
         </aside>
         <div class="main">
+          
             <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light">
+                  <i class="fa-solid fa-bars fs-4  ms-3" style="width:0px, overflow:hidden" id="openSidebar"></i>
                 <div class="container-fluid">
 
                     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
@@ -58,7 +66,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -67,9 +75,9 @@
                                     Properties
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Buy</a></li>
-
-                                    <li><a class="dropdown-item" href="#">Rent</a></li>
+                                    <li><a class="dropdown-item" href="#">Add New Property</a></li>
+                                    <li><a class="dropdown-item" href="#">Sell a Property</a></li>
+                                    <li><a class="dropdown-item" href="#">Rent an Apartment</a></li>
 
                                 </ul>
                             </li>
@@ -108,6 +116,9 @@
 
 
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+
 </body>
 
 </html>
