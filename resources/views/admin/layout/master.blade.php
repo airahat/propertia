@@ -9,7 +9,9 @@
     <title>@yield("title", "Home")</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
@@ -23,14 +25,14 @@
                 <a class="logo" href="/">
                     <img src="{{ asset('propertia-logo.png') }}" style="width: 100px;" alt="">
                 </a>
-                <i class="fa-solid fa-xmark fw-bolder fs-4 pt-3 ms-auto"  id="closeSidebar"></i>
+                <i class="fa-solid fa-xmark fw-bolder fs-4 pt-3 ms-auto" id="closeSidebar"></i>
 
             </div>
             {{-- profile img --}}
             <div>
                 <div class="text-center mt-5">
-                    <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle" alt="Profile Image"
-                        width="80" height="80">
+                    <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle" alt="Profile Image" width="80"
+                        height="80">
                     <h5 class="mt-2">John
                 </div>
 
@@ -38,24 +40,28 @@
                 <div class="sidebar-menu">
                     <ul class="nav  flex-column mt-4">
                         <li class="nav-item">
-                            <a class="nav-link active d-flex" href="#"><span class="me-auto">Dashboard</span> <i class="fa-solid fs-5 fa-chart-column"></i></a>
+                            <a class="nav-link  d-flex" href="/"><span class="me-auto">Dashboard</span> <i
+                                    class="fa-solid fs-5 fa-chart-column"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#" ><span class="me-auto">Properties</span> <i class="fa-solid fa-city fs-5"></i></a>
+                            <a class="nav-link d-flex" href="/properties"><span class="me-auto">Properties</span> <i
+                                    class="fa-solid fa-city fs-5"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#"><span class="me-auto">Rentals</span> <i class="fa-solid fa-house-user fs-5"></i> </a>
+                            <a class="nav-link d-flex" href="/rental"><span class="me-auto">Rentals</span> <i
+                                    class="fa-solid fa-house-user fs-5"></i> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-flex" href="#"><span class="me-auto">Employees</span> <i class="fa-solid fs-5 fa-users"></i></a>
+                            <a class="nav-link d-flex" href="#"><span class="me-auto">Employees</span> <i
+                                    class="fa-solid fs-5 fa-users"></i></a>
                         </li>
                 </div>
 
         </aside>
         <div class="main">
-          
-            <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light">
-                  <i class="fa-solid fa-bars fs-4  ms-3" style="width:0px, overflow:hidden" id="openSidebar"></i>
+
+            <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light ">
+                <i class="fa-solid fa-bars fs-4  ms-3" style="width:0px, overflow:hidden" id="openSidebar"></i>
                 <div class="container-fluid">
 
                     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
@@ -66,7 +72,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link " aria-current="page" href="/">Home</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -77,21 +83,33 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Add New Property</a></li>
                                     <li><a class="dropdown-item" href="#">Sell a Property</a></li>
-                                    <li><a class="dropdown-item" href="#">Rent an Apartment</a></li>
+                                    <li><a class="dropdown-item" href="/rent">Rent an Apartment</a></li>
 
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
+                                <a class="nav-link " aria-current="page" href="/messages">Messages</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact">Contact Us</a>
+
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown">
+                                    <img src="{{ asset('default-profile.jpg') }}" class="img rounded-circle"
+                                        style="width: 30px;" alt="">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">View Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+
+                                </ul>
                             </li>
+
+
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+
                     </div>
                 </div>
             </nav>
@@ -107,9 +125,9 @@
 
 
 
-        
-    
-       
+
+
+
     </div>
 
 
