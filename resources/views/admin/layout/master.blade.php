@@ -33,7 +33,7 @@
                 <div class="text-center mt-5">
                     <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle" alt="Profile Image" width="80"
                         height="80">
-                    <h5 class="mt-2">John
+                    <h5 class="mt-2 fw-bolder">John
                 </div>
 
                 {{-- Sidebar Menu --}}
@@ -52,6 +52,10 @@
                                     class="fa-solid fa-house-user fs-5"></i> </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link d-flex" href="/sales"><span class="me-auto">Sales</span> <i
+                                    class="fa-solid fs-5 fa-sack-dollar"></i></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link d-flex" href="#"><span class="me-auto">Employees</span> <i
                                     class="fa-solid fs-5 fa-users"></i></a>
                         </li>
@@ -60,59 +64,82 @@
         </aside>
         <div class="main">
 
-            <nav class="navbar top-nav navbar-expand-lg navbar-light bg-light ">
-                <i class="fa-solid fa-bars fs-4  ms-3" style="width:0px, overflow:hidden" id="openSidebar"></i>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
                 <div class="container-fluid">
 
-                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    <!-- Sidebar Toggle -->
+                    <i class="fa-solid fa-bars fs-4 me-3" id="openSidebar" style="cursor:pointer;"></i>
+
+
+
+                    <!-- Mobile Toggle -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <!-- Menu -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <!-- LEFT MENU ITEMS -->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/">Home</a>
+                                <a class="nav-link nav-hover" href="/">Home</a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle nav-hover" href="#" data-bs-toggle="dropdown">
                                     Properties
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Add New Property</a></li>
-                                    <li><a class="dropdown-item" href="#">Sell a Property</a></li>
+                                    <li><a class="dropdown-item" href="/properties/create">Add New Property</a></li>
+                                    <li><a class="dropdown-item" href="/properties/sell">Sell a Property</a></li>
                                     <li><a class="dropdown-item" href="/rent">Rent an Apartment</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle nav-hover" href="#" data-bs-toggle="dropdown">
+                                    Projects
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/projects/create">Add New Projects</a></li>
 
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/messages">Messages</a>
+                                <a class="nav-link nav-hover" href="/messages">Messages</a>
                             </li>
 
+                        </ul>
 
-
+                        <!-- RIGHT MENU -->
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown">
-                                    <img src="{{ asset('default-profile.jpg') }}" class="img rounded-circle"
-                                        style="width: 30px;" alt="">
+                                <a class="nav-link dropdown-toggle p-0" href="#" data-bs-toggle="dropdown">
+                                    <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle border"
+                                        style="width: 35px; height: 35px; object-fit: cover;">
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">View Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user me-2"></i>View
+                                            Profile</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i
+                                                class="fa-solid fa-gear me-2"></i>Settings</a>
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#"><i
+                                                class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+                                    </li>
                                 </ul>
                             </li>
-
-
                         </ul>
 
                     </div>
                 </div>
             </nav>
+
             <div class="container-fluid content-area">
 
                 @yield("content")

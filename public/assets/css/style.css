@@ -69,3 +69,26 @@
     width: 24px;  
     opacity: 1;
 }
+
+.nav-hover {
+    transition: 0.2s ease-in-out;
+}
+
+.nav-hover:hover {
+    color: #0d6efd !important;
+    transform: translateY(-1px);
+}
+body {
+    background: #f5f7fa;
+}
+
+.auth-bg {
+    background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+}
+
+.card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.85) !important;
+}

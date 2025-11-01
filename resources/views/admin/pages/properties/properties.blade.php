@@ -6,7 +6,7 @@
     <div class="container py-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold">Properties</h3>
-            <a href="#" class="btn btn-primary">Add New Property</a>
+            <a href="/properties/create" class="btn btn-primary">Add New Property</a>
         </div>
 
 

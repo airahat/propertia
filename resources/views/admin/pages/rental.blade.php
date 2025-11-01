@@ -32,9 +32,9 @@
                             <td>5th of every month</td>
                             <td><span class="badge bg-success">Active</span></td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-info">View</a>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <a href="#" class="btn btn-sm btn-outline-danger">End</a>
+                                <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fa-regular fa-eye"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger" title="End"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
 
@@ -45,11 +45,11 @@
                             <td>৳ 1,20,000 / month</td>
                             <td>2024-11-15</td>
                             <td>10th of every month</td>
-                            <td><span class="badge bg-warning text-dark">Pending Payment</span></td>
+                            <td><span class="badge bg-warning text-dark">Pending</span></td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-outline-info">View</a>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
-                                <a href="#" class="btn btn-sm btn-outline-danger">End</a>
+                                <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fa-regular fa-eye"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-primary" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="#" class="btn btn-sm btn-outline-danger" title="End"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     </tbody>
