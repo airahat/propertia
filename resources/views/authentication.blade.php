@@ -26,15 +26,15 @@
             <p class="text-muted" style="font-size: 0.9rem;">Access your Real Estate Dashboard</p>
         </div>
 
-        <form>
+        <form action="/">
             <div class="mb-3">
                 <label class="form-label fw-semibold">Email Address</label>
-                <input type="email" class="form-control form-control-lg" placeholder="example@mail.com">
+                <input type="email" class="form-control form-control-lg" placeholder="example@mail.com" value="abc@example.com">
             </div>
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">Password</label>
-                <input type="password" class="form-control form-control-lg" placeholder="••••••••">
+                <input type="password" class="form-control form-control-lg" placeholder="••••••••" value="123456">
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-3">
