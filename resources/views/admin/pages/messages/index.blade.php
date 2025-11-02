@@ -25,7 +25,7 @@
                 {{-- {{ Str::limit($msg->message, 50) }} --}}
             </td>
             <td>
-                <a href="#" class="btn btn-sm btn-primary">View</a>
+                <a href="/messages/show" class="btn btn-sm btn-primary">View</a>
             </td>
         </tr>
         {{-- @endforeach --}}
@@ -44,7 +44,7 @@
                 {{-- {{ Str::limit($msg->message, 50) }} --}}
             </td>
             <td>
-                <a href="#" class="btn btn-sm btn-primary">View</a>
+                <a href="/messages/show" class="btn btn-sm btn-primary">View</a>
             </td>
         </tr>
         {{-- @endforeach --}}
@@ -63,7 +63,7 @@
                 {{-- {{ Str::limit($msg->message, 50) }} --}}
             </td>
             <td>
-                <a href="#" class="btn btn-sm btn-primary">View</a>
+                <a href="/messages/show" class="btn btn-sm btn-primary">View</a>
             </td>
         </tr>
         {{-- @endforeach --}}

@@ -20,6 +20,9 @@ Route::get('/properties/sell', function () {
 Route::get('/projects/create', function () {
     return view('admin.pages.projects.create');
 });
+Route::get('/projects', function () {
+    return view('admin.pages.projects.index');
+});
 Route::get('/rental', function () {
     return view('admin.pages.rental');
 });
@@ -27,10 +30,25 @@ Route::get('/rent', function () {
     return view('admin.pages.rent');
 });
 Route::get('/messages', function () {
-    return view('admin.pages.messages');
+    return view('admin.pages.messages.index');
+});
+Route::get('/messages/show', function () {
+    return view('admin.pages.messages.show');
 });
 Route::get('/login', function () {
     return view('authentication');
+});
+Route::get('/employees', function () {
+    return view('employees');
+});
+Route::get('/users', function () {
+    return view('admin.pages.users.index');
+});
+Route::get('/users/create', function () {
+    return view('admin.pages.users.create');
+});
+Route::get('/employees/create', function () {
+    return view('create-employee');
 });
 
 
