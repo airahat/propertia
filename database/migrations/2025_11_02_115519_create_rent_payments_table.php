@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('rent_payments', function (Blueprint $table) {
             $table->id();
+            $table->integer('rental_id');
+            
             $table->timestamps();
         });
     }
