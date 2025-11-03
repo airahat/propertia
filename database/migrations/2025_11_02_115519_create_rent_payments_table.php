@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('rent_payments', function (Blueprint $table) {
             $table->id();
             $table->integer('rental_id');
+            $table->decimal('amount', 10, 3);
+            $table->date('paid_for_month');
+            $table->date('payment_date');
             
             $table->timestamps();
         });

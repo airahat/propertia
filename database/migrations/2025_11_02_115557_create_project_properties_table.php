@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('project_properties', function (Blueprint $table) {
             $table->id();
+            $table->integer('project_id');
+            $table->integer('property_id');
             $table->timestamps();
         });
     }

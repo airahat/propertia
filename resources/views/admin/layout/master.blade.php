@@ -22,72 +22,71 @@
     <div class="d-flex">
         <aside class="side-bar" id="sidebar">
             <div class="logo text-center px-3 pt-1 d-flex ">
-                <a class="logo" href="/">
-                    <img src="{{ asset('propertia-logo.png') }}" style="width: 100px;" alt="">
+                <a class="logo ps-2" href="/">
+                    <img src="{{ asset('propertia-logo.png') }}" style="width: 120px;" alt="">
                 </a>
                 <i class="fa-solid fa-xmark fw-bolder fs-4 pt-3 ms-auto" id="closeSidebar"></i>
 
             </div>
             {{-- profile img --}}
             <div>
-                <div class="text-center mt-5">
-                    <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle" alt="Profile Image" width="80"
-                        height="80">
-                        <h5 class="mt-2 fw-bolder">John
-                        </div>
-                        
-                        {{-- Sidebar Menu --}}
-                        <div class="sidebar-menu">
-                            <ul class="nav flex-column mt-4">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex {{ request()->is('/') ? 'active' : '' }}" href="/">
-                                        <span class="me-auto">Dashboard</span>
-                                        <i class="fa-solid fs-5 fa-chart-column"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex {{ request()->is('users*') ? 'active' : '' }}" href="/users">
-                                        <span class="me-auto">Users</span>
-                                        <i class="fa-solid fs-5 fa-user-tie"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex {{ request()->is('employees*') ? 'active' : '' }}" href="/employees">
-                                        <span class="me-auto">Employees</span>
-                                        <i class="fa-solid fs-5 fa-users"></i>
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex {{ request()->is('properties*') ? 'active' : '' }}" href="/properties">
-                <span class="me-auto">Properties</span>
-                <i class="fa-solid fa-city fs-5"></i>
-            </a>
-        </li>
 
-        <li class="nav-item">
-            <a class="nav-link d-flex {{ request()->is('rental*') ? 'active' : '' }}" href="/rental">
-                <span class="me-auto">Rentals</span>
-                <i class="fa-solid fa-house-user fs-5"></i>
-            </a>
-        </li>
 
-        <li class="nav-item">
-            <a class="nav-link d-flex {{ request()->is('sales*') ? 'active' : '' }}" href="/sales">
-                <span class="me-auto">Sales</span>
-                <i class="fa-solid fs-5 fa-sack-dollar"></i>
-            </a>
-        </li>
+                {{-- Sidebar Menu --}}
+                <div class="sidebar-menu">
+                    <ul class="nav flex-column mt-4">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('/') ? 'active' : '' }}" href="/">
+                                <span class="me-auto">Dashboard</span>
+                                <i class="fa-solid fs-5 fa-chart-column"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('users*') ? 'active' : '' }}" href="/users">
+                                <span class="me-auto">Users</span>
+                                <i class="fa-solid fs-5 fa-user-tie"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('employees*') ? 'active' : '' }}"
+                                href="/employees">
+                                <span class="me-auto">Employees</span>
+                                <i class="fa-solid fs-5 fa-users"></i>
+                            </a>
+                        </li>
 
-        <li class="nav-item">
-            <a class="nav-link d-flex {{ request()->is('projects*') ? 'active' : '' }}" href="/projects">
-                <span class="me-auto">Projects</span>
-                <i class="fa-solid fs-5 fa-person-digging"></i>
-            </a>
-        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('properties*') ? 'active' : '' }}"
+                                href="/properties">
+                                <span class="me-auto">Properties</span>
+                                <i class="fa-solid fa-city fs-5"></i>
+                            </a>
+                        </li>
 
-    </ul>
-</div>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('rental*') ? 'active' : '' }}" href="/rental">
+                                <span class="me-auto">Rentals</span>
+                                <i class="fa-solid fa-house-user fs-5"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('sales*') ? 'active' : '' }}" href="/sales">
+                                <span class="me-auto">Sales</span>
+                                <i class="fa-solid fs-5 fa-sack-dollar"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('projects*') ? 'active' : '' }}"
+                                href="/projects">
+                                <span class="me-auto">Projects</span>
+                                <i class="fa-solid fs-5 fa-person-digging"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
 
 
         </aside>

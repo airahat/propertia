@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('property_id');
             $table->integer('buyer_id');
-            $table->integer('sale_price');
+            $table->decimal('sale_price', 10, 2);
             $table->date('sale_date');
             $table->timestamps();
         });

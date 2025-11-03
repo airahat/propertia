@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('area');
             $table->integer('size_in_sqft');
-            $table->integer('price');
+            $table->decimal('price', 10, 3);
 
             $table->timestamps();
         });

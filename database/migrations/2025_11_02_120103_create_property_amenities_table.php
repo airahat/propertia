@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('property_amenities', function (Blueprint $table) {
             $table->id();
+            $table->integer('property_id');
+            $table->integer('amenity_id');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('monthly_rent');
-            $table->integer('security_deposit');
+            $table->decimal('security_deposit', 8, 2);
             $table->integer('status_id');
 
             $table->timestamps();
