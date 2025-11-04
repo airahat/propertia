@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PropertiesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,9 +9,15 @@ Route::get('/', function () {
 Route::get('/sales', function () {
     return view('admin.pages.sales');
 });
-Route::get('/properties', function () {
-    return view('admin.pages.properties.properties');
-});
+Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
+
+// Route::get('/users', [UserController::class, 'index'])->name("users.index");
+
+
+
+
+
+
 Route::get('/properties/create', function () {
     return view('admin.pages.properties.create');
 });

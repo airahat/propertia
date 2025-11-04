@@ -12,7 +12,8 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-        
+       $properties = Properties::get();
+        dd($properties);
     }
 
     /**

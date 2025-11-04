@@ -41,20 +41,7 @@
                                 <i class="fa-solid fs-5 fa-chart-column"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex {{ request()->is('users*') ? 'active' : '' }}" href="/users">
-                                <span class="me-auto">Users</span>
-                                <i class="fa-solid fs-5 fa-user-tie"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex {{ request()->is('employees*') ? 'active' : '' }}"
-                                href="/employees">
-                                <span class="me-auto">Employees</span>
-                                <i class="fa-solid fs-5 fa-users"></i>
-                            </a>
-                        </li>
-
+                        
                         <li class="nav-item">
                             <a class="nav-link d-flex {{ request()->is('properties*') ? 'active' : '' }}"
                                 href="/properties">
@@ -84,14 +71,27 @@
                                 <i class="fa-solid fs-5 fa-person-digging"></i>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('users*') ? 'active' : '' }}" href="/users">
+                                <span class="me-auto">Users</span>
+                                <i class="fa-solid fs-5 fa-user-tie"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('employees*') ? 'active' : '' }}"
+                                href="/employees">
+                                <span class="me-auto">Employees</span>
+                                <i class="fa-solid fs-5 fa-users"></i>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </div>
 
 
         </aside>
         <div class="main">
-
+            
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
                 <div class="container-fluid">
 
@@ -102,7 +102,7 @@
 
                     <!-- Mobile Toggle -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
