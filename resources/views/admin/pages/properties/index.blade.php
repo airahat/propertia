@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="container py-4">
+    <div class=" py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold">Properties</h3>
             <a href="/properties/create" class="btn btn-primary">Add New Property</a>

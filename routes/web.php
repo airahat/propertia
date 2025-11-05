@@ -13,14 +13,11 @@ Route::get('/properties', [PropertiesController::class, 'index'])->name('propert
 
 // Route::get('/users', [UserController::class, 'index'])->name("users.index");
 
+Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
 
 
 
 
-
-Route::get('/properties/create', function () {
-    return view('admin.pages.properties.create');
-});
 Route::get('/properties/sell', function () {
     return view('admin.pages.properties.sell');
 });

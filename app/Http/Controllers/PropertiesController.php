@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Properties;
+use App\Models\PropertyTypes;
+use App\Models\PropertyPurpose;
 use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
@@ -22,7 +24,11 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        //
+
+        $propertyTypes = PropertyTypes::all();
+        $propertyPurpse = PropertyPurpose::all();
+        // dd($propertyType);
+        return view("admin.pages.properties.create", compact("propertyTypes", "propertyPurpse"));
     }
 
     /**
