@@ -12,8 +12,9 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-       $properties = Properties::get();
-        dd($properties);
+       $properties = Properties::all();
+        // dd($properties);
+        return view('admin.pages.properties.index', compact('properties'));
     }
 
     /**

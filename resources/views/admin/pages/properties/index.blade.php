@@ -1,9 +1,9 @@
-@extends("admin.layout.master")
-@section("title", "Properties")
+@extends('admin.layout.master')
+@section('title', 'Properties')
 
-@section("content")
+@section('content')
 
-    <div class="container py-5">
+    <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold">Properties</h3>
             <a href="/properties/create" class="btn btn-primary">Add New Property</a>
@@ -45,16 +45,43 @@
                 <table class="table table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th>Image</th>
                             <th>Title</th>
-                            <th>Type</th>
-                            <th>Purpose</th>
+                            <th>Description</th>
+                            <th>Property Type</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Area</th>
+                            <th>Size (sqft.)</th>
                             <th>Price</th>
-                            <th>Location</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        @foreach ($properties as $property )
+                        
+                        <tr>
+                            <td>{{ $property ['title'] }}</td>
+                            <td>{{ $property ['description'] }}</td>
+                            <td>{{ $property ['property_type_id'] }}</td>
+                            <td>{{ $property ['adress'] }}</td>
+                            <td>{{ $property ['city'] }}</td>
+                            <td>{{ $property ['area'] }}</td>
+                            <td>{{ $property ['size_in_sqft'] }}</td>
+                            <td>{{ $property ['price'] }}</td>
+                            <td >
+                                <div class="d-flex gap-2 align-items-center">
+
+                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                    <a href="#" class="btn btn-sm btn-info">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+
+
             </div>
 
-@endsection
+        @endsection
