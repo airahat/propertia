@@ -72,7 +72,7 @@
                             <td >
                                 <div class="d-flex gap-2 align-items-center">
 
-                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                    <a href="{{ route('properties.show', $property['id']) }}" class="btn btn-sm btn-primary">View</a>
                                     <a href="#" class="btn btn-sm btn-info">Edit</a>
                                     <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                 </div>

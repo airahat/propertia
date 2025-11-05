@@ -10,6 +10,7 @@ Route::get('/sales', function () {
     return view('admin.pages.sales');
 });
 Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
+Route::get('/properties/{id}', [PropertiesController::class, 'show'])->name('properties.show');
 
 // Route::get('/users', [UserController::class, 'index'])->name("users.index");
 

@@ -42,9 +42,17 @@ class PropertiesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Properties $properties)
+    public function show($id)
     {
-        //
+        $property= Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size_in_sqft', 'p.price', 'pt.id', 'pp.id')
+        ->from('properties as p')
+        ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+        ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+        ->where('p.id', $id)
+        ->orderBy('p.id', 'desc')
+        ->first();
+        // dd($property);
+        return view('admin.pages.properties.show', compact('property'));
     }
 
     /**
