@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Add Property')
+@section('title', 'Edit Property')
 
 @section('content')
     <div class=" py-3">
@@ -14,7 +14,7 @@
         {{-- Card Form --}}
         <div class="card border-0 shadow-lg rounded-4">
             <div class="card-header bg-primary text-white rounded-top-4">
-                <h5 class="mb-0"><i class="fa-solid fa-building me-2"></i> Property Details</h5>
+                <h5 class="mb-0"><i class="fa-solid fa-building me-2"></i> Update Property</h5>
             </div>
 
             <div class="card-body p-4">
@@ -28,14 +28,14 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Property Title</label>
                         <input type="text" name="title" class="form-control shadow-sm"
-                            placeholder="Ex: Modern Apartment in Banani" required>
+                            placeholder="Ex: Modern Apartment in Banani" required value="{{ $property['title'] }}">
                     </div>
 
                     {{-- Description --}}
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Description</label>
                         <textarea name="description" class="form-control shadow-sm" rows="4"
-                            placeholder="Write details about the property..." required></textarea>
+                            placeholder="Write details about the property..." required value="{{ $property['description'] }}"></textarea>
                     </div>
 
                     {{-- Dropdowns --}}
@@ -63,7 +63,7 @@
                         <div class="col-md-4">
                             <label class="form-label fw-semibold">Price (৳)</label>
                             <input type="number" name="price" class="form-control shadow-sm" placeholder="Ex: 35000"
-                                required>
+                                required value="{{ $property['price'] }}">
                         </div>
                     </div>
 

@@ -10,11 +10,14 @@ Route::get('/sales', function () {
     return view('admin.pages.sales');
 });
 Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
+Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
+Route::post('/properties/store',[PropertiesController::class, 'store'])->name('properties.store');
+Route::delete('/properties/{id}',[PropertiesController::class, 'destroy'])->name('properties.destroy');
 Route::get('/properties/{id}', [PropertiesController::class, 'show'])->name('properties.show');
+Route::get('/properties/{id}/edit', [PropertiesController::class, 'edit'])->name('properties.edit');
 
 // Route::get('/users', [UserController::class, 'index'])->name("users.index");
 
-Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
 
 
 

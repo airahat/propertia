@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Properties;
 use App\Models\PropertyTypes;
 use App\Models\PropertyPurpose;
+use App\Models\Measurement;
 use Illuminate\Http\Request;
 
 class PropertiesController extends Controller
@@ -14,7 +15,13 @@ class PropertiesController extends Controller
      */
     public function index()
     {
-       $properties = Properties::all();
+       $properties = Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size', 'p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.name as measuremnet')
+        ->from('properties as p')
+        ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+        ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+        ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
+        ->orderBy('p.id', 'desc')
+        ->get();
         // dd($properties);
         return view('admin.pages.properties.index', compact('properties'));
     }
@@ -26,9 +33,10 @@ class PropertiesController extends Controller
     {
 
         $propertyTypes = PropertyTypes::all();
-        $propertyPurpse = PropertyPurpose::all();
+        $propertyPurposes = PropertyPurpose::all();
+        $measurements = Measurement::all();
         // dd($propertyType);
-        return view("admin.pages.properties.create", compact("propertyTypes", "propertyPurpse"));
+        return view("admin.pages.properties.create", compact("propertyTypes", "propertyPurposes", "measurements"));
     }
 
     /**
@@ -36,7 +44,34 @@ class PropertiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        // $request->validate([
+        //    'photo'=>['mimes:jpg,png,jpeg', 'image', 'max:2048', ]
+        // ]);
+        // if($request->hasFile('photo')){
+        //     $photo = $request->file('photo')->store('properties', 'public');
+        // }else{
+        //     $photo = null;
+        // }   
+
+        Properties::create([
+
+            'title' => $request->title,
+            'description' => $request->description,
+            'property_type_id' => $request->property_type_id,
+            'property_purpose_id' => $request->property_purpose_id,
+            'address' => $request->address,
+            'city' => $request->city,
+            'area' => $request->area,
+            'size_in_sqft' => $request->size_in_sqft,
+            'price' => $request->price,
+        ]);
+
+        return redirect()
+        ->route('properties.index')
+        ->with('success', 'Property Added Successfully!');
+
+
     }
 
     /**
@@ -44,10 +79,11 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        $property= Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size_in_sqft', 'p.price', 'pt.id', 'pp.id')
+        $property= Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size','p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.name as measurement')
         ->from('properties as p')
         ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
         ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+        ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
         ->where('p.id', $id)
         ->orderBy('p.id', 'desc')
         ->first();
@@ -58,9 +94,14 @@ class PropertiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Properties $properties)
+    public function edit($id)
     {
-        //
+        $property = Properties::find($id);
+        $propertyTypes = PropertyTypes::all();
+        $propertyPurposes = PropertyPurpose::all();
+        $measurements = Measurement::all();
+        return view('admin.pages.properties.edit', compact('property', 'propertyTypes', 'propertyPurposes', 'measurements'));
+
     }
 
     /**
@@ -74,8 +115,10 @@ class PropertiesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Properties $properties)
+    public function destroy($id)
     {
-        //
+        $properties = Properties::find($id);
+        $properties-> delete();
+        return redirect()->route('properties.index')->with('success', 'Property Deleted Successfully');
     }
 }

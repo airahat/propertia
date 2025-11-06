@@ -48,6 +48,7 @@
                             <th>Title</th>
                             <th>Description</th>
                             <th>Property Type</th>
+                            <th>Property Purpose</th>
                             <th>Address</th>
                             <th>City</th>
                             <th>Area</th>
@@ -58,26 +59,35 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($properties as $property )
-                        
-                        <tr>
-                            <td>{{ $property ['title'] }}</td>
-                            <td>{{ $property ['description'] }}</td>
-                            <td>{{ $property ['property_type_id'] }}</td>
-                            <td>{{ $property ['adress'] }}</td>
-                            <td>{{ $property ['city'] }}</td>
-                            <td>{{ $property ['area'] }}</td>
-                            <td>{{ $property ['size_in_sqft'] }}</td>
-                            <td>{{ $property ['price'] }}</td>
-                            <td >
-                                <div class="d-flex gap-2 align-items-center">
+                        @foreach ($properties as $property)
+                            <tr>
+                                <td>{{ $property['title'] }}</td>
+                                <td>{{ Str::limit($property->description, 30, '...') }}</td>
+                                <td>{{ $property['type'] }}</td>
+                                <td>{{ $property['purpose'] }}</td>
+                                <td>{{ $property['address'] }}</td>
+                                <td>{{ $property['city'] }}</td>
+                                <td>{{ $property['area'] }}</td>
+                                <td>{{ $property['size'] }} <span class="fw-bolder" style="font-size: smaller">
+                                        {{ $property['measuremnet'] }} </span> </td>
+                                <td>{{ $property['price'] }}</td>
+                                <td>
+                                    <div class="d-flex gap-2 align-items-center">
 
-                                    <a href="{{ route('properties.show', $property['id']) }}" class="btn btn-sm btn-primary">View</a>
-                                    <a href="#" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                </div>
-                            </td>
-                        </tr>
+                                        <a href="{{ route('properties.show', $property['id']) }}"
+                                            class="btn btn-sm btn-primary">View</a>
+                                        <a href="{{ route('properties.edit', $property['id']) }}" class="btn btn-sm btn-info">Edit</a>
+                                        <form action="{{ route('properties.destroy', $property['id']) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger">Remove</button>
+
+
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
 
