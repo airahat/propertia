@@ -104,9 +104,20 @@ class PropertiesController extends Controller
 
     }
 
+    public function fetchDetails($id)
+{
+    $property = Properties::find($id);
+
+    return response()->json($property);
+}
+
     /**
      * Update the specified resource in storage.
      */
+    public function sell(Request $request, Properties $properties)
+    {
+        //
+    }
     public function update(Request $request, Properties $properties)
     {
         //

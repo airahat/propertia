@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Description</label>
                         <textarea name="description" class="form-control shadow-sm" rows="4"
-                            placeholder="Write details about the property..." required value="{{ $property['description'] }}"></textarea>
+                            placeholder="Write details about the property..." required >{{ $property['description'] }}</textarea>
                     </div>
 
                     {{-- Dropdowns --}}
@@ -72,19 +72,19 @@
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">Address</label>
                             <input type="text" name="address" class="form-control shadow-sm"
-                                placeholder="Ex: House 12, Road 3, Banani, Dhaka">
+                                placeholder="Ex: House 12, Road 3, Banani, Dhaka" value="{{ $property['address'] }}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label fw-semibold">City</label>
-                            <input type="text" name="city" class="form-control shadow-sm" placeholder="Ex: Dhaka">
+                            <input type="text" name="city" class="form-control shadow-sm" placeholder="Ex: Dhaka" value="{{ $property['city'] }}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label fw-semibold">Area</label>
-                            <input type="text" name="area" class="form-control shadow-sm" placeholder="Ex: locality">
+                            <input type="text" name="area" class="form-control shadow-sm" placeholder="Ex: locality" value="{{ $property['area'] }}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label fw-semibold">Size</label>
-                            <input type="number" name="size" class="form-control shadow-sm" placeholder="Ex: 1200">
+                            <input type="number" name="size" class="form-control shadow-sm" placeholder="Ex: 1200" value="{{ $property['size'] }}">
                         </div>
                         <div class="col-md-3">
                             <label class="form-label fw-semibold" for="measurement">Measurement</label>
