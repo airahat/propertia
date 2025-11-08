@@ -30,7 +30,29 @@ document.getElementById('propertySelect').addEventListener('change', function ()
             document.getElementById('area').value = data.area;
             document.getElementById('size').value = data.size;
             document.getElementById('price').value = data.price;
-            document.getElementById('measurement').value = data.measurement_id ;
+            document.getElementById('measurement').value = data.measurement ;
+            document.getElementById('measurement_id').value = data.measurement_id ;
         })
         .catch(error => console.log(error));
 });
+
+
+
+// dynamic pricing
+
+    const sellingPriceInput = document.getElementById('price');
+    const paidPriceInput = document.getElementById('paid_price');
+    const remainingPriceInput = document.getElementById('remaining_price');
+
+    // Function to calculate remaining price
+    function updateRemainingPrice() {
+        const selling = parseFloat(sellingPriceInput.value) || 0;
+        const paid = parseFloat(paidPriceInput.value) || 0;
+        const remaining = selling - paid;
+
+        remainingPriceInput.value = remaining >= 0 ? remaining : 0; // Prevent negative
+    }
+
+    // Update when user types or changes either field
+    sellingPriceInput.addEventListener('input', updateRemainingPrice);
+    paidPriceInput.addEventListener('input', updateRemainingPrice);

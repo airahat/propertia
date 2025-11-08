@@ -60,10 +60,11 @@ class PropertiesController extends Controller
             'description' => $request->description,
             'property_type_id' => $request->property_type_id,
             'property_purpose_id' => $request->property_purpose_id,
+            'measurement_id' => $request->measurement_id,
             'address' => $request->address,
             'city' => $request->city,
             'area' => $request->area,
-            'size_in_sqft' => $request->size_in_sqft,
+            'size' => $request->size,
             'price' => $request->price,
         ]);
 
@@ -106,18 +107,21 @@ class PropertiesController extends Controller
 
     public function fetchDetails($id)
 {
-    $property = Properties::find($id);
-
+    $property = Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size','p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.id', 'm.name as measurement')
+        ->from('properties as p')
+        ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+        ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+        ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
+        ->where('p.id', $id)
+        ->orderBy('p.id', 'desc')
+        ->first();
     return response()->json($property);
 }
 
     /**
      * Update the specified resource in storage.
      */
-    public function sell(Request $request, Properties $properties)
-    {
-        //
-    }
+
     public function update(Request $request, Properties $properties)
     {
         //

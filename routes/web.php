@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\SalesController;
 use App\Models\Properties;
 use Illuminate\Support\Facades\Route;
 
@@ -13,19 +14,14 @@ Route::get('/sales', function () {
 Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
 Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
 Route::post('/properties/store',[PropertiesController::class, 'store'])->name('properties.store');
-Route::get('/properties/sell', function () {
-    $properties = Properties::all();
-    return view('admin.pages.properties.sell', compact('properties'));
-});
-// routes/web.php
+Route::get('/properties/sell', [SalesController::class, 'create'])->name('sales.create');
 Route::get('/property/{id}/details', [PropertiesController::class, 'fetchDetails']);
-
 Route::delete('/properties/{id}',[PropertiesController::class, 'destroy'])->name('properties.destroy');
 Route::get('/properties/{id}', [PropertiesController::class, 'show'])->name('properties.show');
 Route::get('/properties/{id}/edit', [PropertiesController::class, 'edit'])->name('properties.edit');
 
-// Route::get('/users', [UserController::class, 'index'])->name("users.index");
 
+Route::post('/sales/store',[SalesController::class, 'store'])->name('sales.store');
 
 
 
