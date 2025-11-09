@@ -16,7 +16,8 @@ class Properties extends Model
         'address',
         'city',
         'area',
-        'size_in_sqft',
+        'size',
+        'measurement_id',
         'price'
     ];
 }

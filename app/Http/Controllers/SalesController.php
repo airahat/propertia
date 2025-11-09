@@ -15,7 +15,16 @@ class SalesController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sales::select('s.buyer_name', 's.buyer_phone', 's.sale_price', 's.paid_price', 's.remaining_price', 'ps.name as payment_status', 'p.title as property_title', 'p.address as property_address', 'p.city as city')
+        ->from('sales as s')
+        ->join('payment_status as ps', 's.payment_status_id', '=', 'ps.id')
+        ->join('properties as p', 's.property_id', '=', 'p.id')
+        ->join('property_type as pt', 's.property_type_id', '=', 'pt.id')
+        ->orderBy('s.id', 'desc')
+        ->get();
+
+        return view('admin.pages.sales.index', compact('sales'));
+        
     }
 
     /**

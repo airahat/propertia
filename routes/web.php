@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\PropertyImagesController;
 use App\Models\Properties;
 use Illuminate\Support\Facades\Route;
 
@@ -9,7 +10,7 @@ Route::get('/', function () {
     return view('admin.pages.dashboard');
 });
 Route::get('/sales', function () {
-    return view('admin.pages.sales');
+    return view('admin.pages.sales.index');
 });
 Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
 Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
@@ -19,6 +20,9 @@ Route::get('/property/{id}/details', [PropertiesController::class, 'fetchDetails
 Route::delete('/properties/{id}',[PropertiesController::class, 'destroy'])->name('properties.destroy');
 Route::get('/properties/{id}', [PropertiesController::class, 'show'])->name('properties.show');
 Route::get('/properties/{id}/edit', [PropertiesController::class, 'edit'])->name('properties.edit');
+Route::get('/images/create', [PropertyImagesController::class, 'create'])->name('images.create');
+Route::resource('/images', PropertyImagesController::class)->except(['update', 'edit']);
+// Route::resource('/images', PropertyImagesController::class)->only(['index', 'show', 'destroy']);
 
 
 Route::post('/sales/store',[SalesController::class, 'store'])->name('sales.store');

@@ -80,11 +80,12 @@ class PropertiesController extends Controller
      */
     public function show($id)
     {
-        $property= Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size','p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.name as measurement')
+        $property= Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size','p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.name as measurement', 'i.image')
         ->from('properties as p')
         ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
         ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
         ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
+        ->leftJoin('property_images as i', 'p.id', '=', 'i.property_id')
         ->where('p.id', $id)
         ->orderBy('p.id', 'desc')
         ->first();

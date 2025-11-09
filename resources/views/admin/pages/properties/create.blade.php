@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-3">
                             <label class="form-label fw-semibold" for="measurement">Measurement</label>
-                            <select class="form-select shadow-sm" name="measurement" id="measurement">
+                            <select class="form-select shadow-sm" name="measurement_id" id="measurement">
                                 <option value="">--Select Measurement</option>
                                 @foreach ($measurements as $measurement)
                                     <option value="{{ $measurement['id'] }}">{{ $measurement['name'] }}</option>
