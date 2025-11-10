@@ -37,7 +37,7 @@
         <td>{{ $sale->sale_date ?? '-' }}</td>
         <td>
             <a href="{{ route('properties.deed', $sale->id) }}">
-                <i class="fa-solid fa-file-contract fs-1"></i>
+                <i class="fa-solid fa-file-contract fs-1" title="Show Deed"></i>
             </a>
         </td>
     </tr>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Models\PaymentStatus;
 use Illuminate\Http\Request;
@@ -134,6 +135,32 @@ class SalesController extends Controller
 
         return view('property-deed', compact('sale'));
     }
+
+
+public function generateDeed($id)
+{
+    $sale = Sales::findOrFail($id);
+
+    // Load image and convert to base64
+    $path = public_path('deed-header.jpg');
+    $type = pathinfo($path, PATHINFO_EXTENSION);
+    $data = file_get_contents($path);
+    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+    $pdf = Pdf::loadView('property-deed', compact('sale', 'base64'))
+        ->setPaper('legal', 'portrait');
+
+    $pdf->setOptions([
+        'defaultFont' => 'DejaVu Sans',
+        'isHtml5ParserEnabled' => true,
+        'isRemoteEnabled' => true,
+    ]);
+
+    return $pdf->stream("deed_{$sale->id}.pdf");
+}
+
+
+
 
 
 
