@@ -140,3 +140,33 @@ body {
 }
 
 
+.deed-body {
+    font-family: Arial, sans-serif;
+    margin: 20mm; /* top/bottom/left/right margins */
+}
+
+.deed-container {
+    max-width: 190mm; /* A4 print width */
+    margin: 0 auto;
+   
+    border: 1px solid #000;
+}
+
+        .stamp-header {
+            background: #f5f5f5; /* light grey to simulate stamp paper design */
+       
+            text-align: center;
+            
+            
+        }
+
+       
+
+        .stamp-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #000; /* placeholder for logo/seal */
+        }

@@ -15,16 +15,16 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $sales = Sales::select('s.buyer_name', 's.buyer_phone', 's.sale_price', 's.paid_price', 's.remaining_price', 'ps.name as payment_status', 'p.title as property_title', 'p.address as property_address', 'p.city as city')
-        ->from('sales as s')
-        ->join('payment_status as ps', 's.payment_status_id', '=', 'ps.id')
-        ->join('properties as p', 's.property_id', '=', 'p.id')
-        ->join('property_type as pt', 's.property_type_id', '=', 'pt.id')
-        ->orderBy('s.id', 'desc')
-        ->get();
+        $sales = Sales::select('s.id', 's.buyer_name', 's.buyer_phone', 's.sale_price', 's.paid_price', 's.remaining_price', 'ps.name as payment_status', 'p.title as property_title', 's.sale_date', 'p.address as property_address', 'p.city as city')
+            ->from('sales as s')
+            ->join('payment_status as ps', 's.payment_status_id', '=', 'ps.id')
+            ->join('properties as p', 's.property_id', '=', 'p.id')
+            ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+            ->orderBy('s.id', 'desc')
+            ->get();
 
         return view('admin.pages.sales.index', compact('sales'));
-        
+
     }
 
     /**
@@ -32,9 +32,9 @@ class SalesController extends Controller
      */
     public function create()
     {
-            $properties = Properties::all();
-            $paymentStatus = PaymentStatus::all();
-    return view('admin.pages.sales.create', compact('properties', 'paymentStatus'));
+        $properties = Properties::all();
+        $paymentStatus = PaymentStatus::all();
+        return view('admin.pages.sales.create', compact('properties', 'paymentStatus'));
     }
 
     /**
@@ -42,7 +42,7 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         Sales::create([
 
@@ -59,13 +59,13 @@ class SalesController extends Controller
             'city' => $request->city,
             'area' => $request->area,
             'notes' => $request->notes,
-        
+
 
         ]);
 
         return redirect()
-        ->route('properties.index')
-        ->with('success', 'Property Added Successfully!');
+            ->route('properties.index')
+            ->with('success', 'Property Added Successfully!');
 
 
     }
@@ -73,7 +73,7 @@ class SalesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( $s)
+    public function show($s)
     {
         //
     }
@@ -81,7 +81,7 @@ class SalesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( $s)
+    public function edit($s)
     {
         //
     }
@@ -97,8 +97,44 @@ class SalesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( $s)
+    public function destroy($s)
     {
         //
     }
+
+
+    // Properties' Deed
+
+    // public function showDeed($id)
+    // {
+    //     $sale = Sales::select('s.*', 'p.title as property_title', 'p.address as property_address', 'p.city as property_city', 'p.area as property_area', 'p.size as property_size', 'pt.name as property_type', 'pp.name as property_purpose', 'm.name as measurement_name', 'ps.name as payment_status_name')
+    //         ->from('sales as s')
+    //         ->join('properties as p', 's.property_id', '=', 'p.id')
+    //         ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+    //         ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+    //         ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
+    //         ->join('payment_status as ps', 's.payment_status_id', '=', 'ps.id')
+    //         ->where('s.id', $id)
+    //         ->first();
+
+    //     return view('property-deed', compact('sale'));
+    // }
+
+    public function showDeed($id)
+    {
+        $sale = Sales::select('s.id', 's.property_id','s.buyer_name', 's.buyer_phone','s.sale_price','s.paid_price','s.remaining_price','s.payment_status_id','s.id','s.size', 's.measurement_id', 's.address', 's.city', 's.area', 's.notes', 's.sale_date', 'p.title as title', 'p.address as address', 'p.city as property_city', 'p.area as property_area', 'p.size as property_size', 'pt.name as property_type', 'pp.name as property_purpose', 'm.name as measurement', 'ps.name as payment_status')
+            ->from('sales as s')
+            ->join('properties as p', 's.property_id', '=', 'p.id')
+            ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
+            ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
+            ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
+            ->join('payment_status as ps', 's.payment_status_id', '=', 'ps.id')
+            ->where('s.id', $id)
+            ->first();
+
+        return view('property-deed', compact('sale'));
+    }
+
+
+
 }

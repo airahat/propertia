@@ -17,29 +17,33 @@
                     <tr>
                        
                         <th>Property Title</th>
-                        <th>Property Title</th>
+                        <th>Buyer Name</th>
                         <th>Location</th>
                         <th>Buyer Name</th>
                         <th>Sale Price</th>
                         <th>Date Sold</th>
+                        <th>Deed</th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    @foreach ($sales as $sale)
-                    
-                    <tr>
-                        <td>{{ $sale['property_title'] }}</td>
-                        <td>{{ $sale['buyer_name'] }}</td>
-                        <td>{{ $sale['buyer_phone'] }}</td>
-                        <td>{{ $sale['sale_price'] }}</td>
-                        <td>{{ $sale['paid_price'] }}</td>
-                        <td>12 Oct 2025</td>
-                    </tr>
-                    @endforeach
+<tbody>
+    @foreach ($sales as $sale)
+    <tr>
+        <td>{{ $sale->property_title }}</td>
+        <td>{{ $sale->buyer_name }}</td>
+        <td>{{ $sale->buyer_phone }}</td>
+        <td>{{ $sale->sale_price }}</td>
+        <td>{{ $sale->paid_price }}</td>
+        <td>{{ $sale->sale_date ?? '-' }}</td>
+        <td>
+            <a href="{{ route('properties.deed', $sale->id) }}">
+                <i class="fa-solid fa-file-contract fs-1"></i>
+            </a>
+        </td>
+    </tr>
+    @endforeach
+</tbody>
 
-                    
-                </tbody>
 
             </table>
 

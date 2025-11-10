@@ -9,10 +9,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.pages.dashboard');
 });
-Route::get('/sales', function () {
-    return view('admin.pages.sales.index');
-});
+Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
 Route::get('/properties', [PropertiesController::class, 'index'])->name('properties.index');
+Route::get('/properties/deed/{id}', [SalesController::class, 'showDeed'])->name('properties.deed');
 Route::get('/properties/create',[PropertiesController::class, 'create'])->name('properties.create');
 Route::post('/properties/store',[PropertiesController::class, 'store'])->name('properties.store');
 Route::get('/properties/sell', [SalesController::class, 'create'])->name('sales.create');
