@@ -3,6 +3,9 @@
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PropertyImagesController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TenantController;
+use App\Http\Controllers\RentalsController;
 use App\Models\Properties;
 use Illuminate\Support\Facades\Route;
 
@@ -37,12 +40,6 @@ Route::get('/projects/create', function () {
 Route::get('/projects', function () {
     return view('admin.pages.projects.index');
 });
-Route::get('/rental', function () {
-    return view('admin.pages.rental');
-});
-Route::get('/rent', function () {
-    return view('admin.pages.rent');
-});
 Route::get('/messages', function () {
     return view('admin.pages.messages.index');
 });
@@ -55,12 +52,24 @@ Route::get('/login', function () {
 Route::get('/employees', function () {
     return view('employees');
 });
-Route::get('/users', function () {
-    return view('admin.pages.users.index');
-});
-Route::get('/users/create', function () {
-    return view('admin.pages.users.create');
-});
+// --- USERS ROUTE ---
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+
+// TENANTS ROUTE
+Route::get('/tenants', [TenantController::class, 'index'])->name('tenants.index');
+Route::get('/tenants/create', [TenantController::class, 'create'])->name('tenants.create');
+Route::post('/tenants/store', [TenantController::class, 'store'])->name('tenants.store');
+
+// RENTALS Route
+
+Route::get('/rental', [RentalsController::class, 'index'])->name('rentals.index');
+Route::get('/rental/create', [RentalsController::class, 'create'])->name('rentals.create');
+Route::post('/rental/store', [RentalsController::class, 'store'])->name('rentals.store');
+
+
+
 Route::get('/employees/create', function () {
     return view('create-employee');
 });

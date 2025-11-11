@@ -72,6 +72,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link d-flex {{ request()->is('tenants*') ? 'active' : '' }}" href="/tenants">
+                                <span class="me-auto">Tenants</span>
+                                <i class="fa-solid fs-5 fa-user-tie"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link d-flex {{ request()->is('users*') ? 'active' : '' }}" href="/users">
                                 <span class="me-auto">Users</span>
                                 <i class="fa-solid fs-5 fa-user-tie"></i>

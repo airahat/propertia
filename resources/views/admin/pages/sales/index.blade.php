@@ -12,7 +12,7 @@
 
         <div class="card-body p-0">
 
-            <table class="table table-bordered table-striped mb-0">
+            <table class="table  table-striped mb-0">
                 <thead>
                     <tr>
                        
@@ -37,7 +37,7 @@
         <td>{{ $sale->sale_date ?? '-' }}</td>
         <td>
             <a href="{{ route('properties.deed', $sale->id) }}">
-                <i class="fa-solid fa-file-contract fs-1" title="Show Deed"></i>
+                <img src="{{ asset('deed-icon.png') }}" style="max-width: 40px" alt="Show Deed" title="Show Deed">
             </a>
         </td>
     </tr>

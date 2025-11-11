@@ -12,7 +12,7 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 {{-- Name + Email --}}
@@ -43,12 +43,13 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="role" class="form-label fw-semibold">Role</label>
-                        <select name="role" id="role" class="form-select">
+                        <select name="role_id" id="role" class="form-select">
                             <option value="">Select role</option>
-                            <option value="admin">Admin</option>
-                            <option value="agent">Agent</option>
-                            <option value="employee">Employee</option>
-                            <option value="client">Client</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                            
+                            @endforeach
+                           
                         </select>
                     </div>
                     <div class="col-md-6">
