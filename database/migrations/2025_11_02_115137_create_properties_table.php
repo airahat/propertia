@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('property_type_id');
+            $table->integer('property_purpose_id');
             $table->text('address');
             $table->string('city');
             $table->string('area');
-            $table->integer('size_in_sqft');
+            $table->integer('size');
+            $table->integer('measurement_id');
             $table->decimal('price', 10, 3);
 
             $table->timestamps();

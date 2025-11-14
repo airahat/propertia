@@ -2,8 +2,8 @@
 @section("title", "Dashboard")
 
 @section('content')
-<div class="container mt-4">
-    <h2 class="mb-4">🏠 Real Estate Dashboard</h2>
+<div class="container py-4">
+    <h2 class="mb-4 text-white fw-bold">🏠 Real Estate Dashboard</h2>
 
     <!-- Stats Row -->
     <div class="row g-4">

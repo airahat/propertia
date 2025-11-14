@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rentals', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->integer('property_id');
-            $table->integer('tenant_id');
-            $table->date('start_date');
-            $table->date('due_date');
-            $table->integer('monthly_rent');
-            $table->decimal('security_deposit', 8, 2);
-            $table->integer('status_id');
-
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rentals');
+        Schema::dropIfExists('unit');
     }
 };

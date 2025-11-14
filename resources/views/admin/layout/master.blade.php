@@ -41,7 +41,7 @@
                                 <i class="fa-solid fs-5 fa-chart-column"></i>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link d-flex {{ request()->is('properties*') ? 'active' : '' }}"
                                 href="/properties">
@@ -74,7 +74,7 @@
                         <li class="nav-item">
                             <a class="nav-link d-flex {{ request()->is('tenants*') ? 'active' : '' }}" href="/tenants">
                                 <span class="me-auto">Tenants</span>
-                                <i class="fa-solid fs-5 fa-user-tie"></i>
+                                <i class="fa-solid fa-user-plus fs-5"></i>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -90,14 +90,14 @@
                                 <i class="fa-solid fs-5 fa-users"></i>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </div>
 
 
         </aside>
         <div class="main">
-            
+
             <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
                 <div class="container-fluid">
 
@@ -108,7 +108,7 @@
 
                     <!-- Mobile Toggle -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -140,6 +140,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/projects/create">Add New Projects</a></li>
+                                    <li><a class="dropdown-item" href="/materials">Materials & Costs</a></li>
 
                                 </ul>
                             </li>
@@ -151,11 +152,11 @@
 
                         <!-- RIGHT MENU -->
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown d-flex">
                                 <a class="nav-link dropdown-toggle p-0" href="#" data-bs-toggle="dropdown">
                                     <img src="{{ asset('default-profile.jpg') }}" class="rounded-circle border"
                                         style="width: 35px; height: 35px; object-fit: cover;">
-                                </a>
+                                </a> 
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user me-2"></i>View
                                             Profile</a>
@@ -175,11 +176,9 @@
             </nav>
 
             <div class="container-fluid content-area">
-
                 @yield("content")
-
-
             </div>
+
 
         </div>
 
@@ -197,7 +196,7 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
-
+@yield('scripts')
 </body>
 
 </html>

@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->integer('property_id');
-            $table->integer('buyer_id');
+            $table->string('buyer_name');
+            $table->string('buyer_phone');
             $table->decimal('sale_price', 10, 2);
+            $table->integer('paid_price');
+            $table->integer('remaining_price');
+            $table->integer('payment_status_id');
             $table->date('sale_date');
             $table->timestamps();
         });

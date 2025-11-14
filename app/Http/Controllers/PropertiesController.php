@@ -13,18 +13,23 @@ class PropertiesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-       $properties = Properties::select('p.id', 'p.title', 'p.description', 'p.property_type_id', 'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 'p.size', 'p.measurement_id', 'p.price', 'pt.name as type', 'pp.name as purpose', 'm.name as measuremnet')
+public function index()
+{
+    $properties = Properties::select(
+            'p.id', 'p.title', 'p.description', 'p.property_type_id', 
+            'p.property_purpose_id', 'p.address', 'p.city', 'p.area', 
+            'p.size', 'p.measurement_id', 'p.price', 
+            'pt.name as type', 'pp.name as purpose', 'm.name as measuremnet'
+        )
         ->from('properties as p')
         ->join('property_types as pt', 'p.property_type_id', '=', 'pt.id')
         ->join('property_purpose as pp', 'p.property_purpose_id', '=', 'pp.id')
         ->join('measurement as m', 'p.measurement_id', '=', 'm.id')
         ->orderBy('p.id', 'desc')
-        ->get();
-        // dd($properties);
-        return view('admin.pages.properties.index', compact('properties'));
-    }
+        ->paginate(5); 
+
+    return view('admin.pages.properties.index', compact('properties'));
+}
 
     /**
      * Show the form for creating a new resource.

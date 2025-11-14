@@ -2,9 +2,9 @@
 
 @section('title', "Add New Project")
 @section('content')
-<div class="container mt-4">
+<div class="container py-4">
 
-    <h2 class="mb-4">Add New Construction Project</h2>
+    <h2 class="mb-4 fw-bold text-white">Add New Construction Project</h2>
 
     <div class="card">
         <div class="card-body">

@@ -1,14 +1,14 @@
 @extends('admin.layout.master')
 @section("title", "Sales")
 @section('content')
-<div class="container mt-4">
+<div class="container py-4">
 
-    <h2 class="mb-4">Sales Records</h2>
+    <h2 class="fw-bolder text-white mb-4">Sales Records</h2>
 
     <div class="card">
-        <div class="card-header bg-primary text-white">
-            Sold Properties
-        </div>
+    <div class="card-header bg-primary text-white rounded-top">
+        Sold Properties
+    </div>
 
         <div class="card-body p-0">
 

@@ -3,9 +3,9 @@
 
 @section('content')
 
-    <div class=" py-4">
+    <div class=" py-4 ">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold">Properties</h3>
+            <h3 class="fw-bold text-white">Properties</h3>
             <a href="/properties/create" class="btn btn-primary">Add New Property</a>
         </div>
 
@@ -41,7 +41,7 @@
 
         <!-- Properties Table -->
         <div class="card border-0 shadow-sm">
-            <div class="table-responsive">
+            <div >
                 <table class="table table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
@@ -75,13 +75,14 @@
                                     <div class="d-flex gap-2 align-items-center">
 
                                         <a href="{{ route('properties.show', $property['id']) }}"
-                                            class="btn btn-sm btn-primary">View</a>
-                                        <a href="{{ route('properties.edit', $property['id']) }}" class="btn btn-sm btn-info">Edit</a>
+                                            class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                        <a href="{{ route('properties.edit', $property['id']) }}"
+                                            class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <form action="{{ route('properties.destroy', $property['id']) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-outline-danger">Remove</button>
+                                            <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
 
 
                                         </form>
@@ -93,5 +94,6 @@
 
 
             </div>
-
-        @endsection
+        </div>
+    </div>
+@endsection
